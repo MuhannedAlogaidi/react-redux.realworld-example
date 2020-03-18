@@ -1,5 +1,5 @@
 # Introduction 
-What you will learn
+## What you will learn
 The purpose of this tutorial is to cover all of them cohesively. The primary focus of this course will be showing you how to rebuild the codebase of the exemplary RealWorld React+Redux project from scratch, which was created by this tutorial's author with guidance that was graciously imparted by the creator of Redux, Dan Abramov.
 
 As such, by the end of this tutorial series, you will have a firm understanding of how to actually build web applications with React and Redux. 
@@ -21,3 +21,16 @@ I feel that learning is best accomplished by "doing," and as such, throughout th
 - For your convenience, we have a hosted API that you can build your application against. 
 
 ***We're also going to release courses for how to create the backend in either Node, Rails, or Django over the next few weeks.***
+
+## Commands
+**Install *create-react-app* from npm**
+`npm install -g create-react-app` 
+> You'll want to install it globally (hence the -g flag)
+
+**Create a new app called "real-world"**
+`create-react-app real-world` 
+> The folder real-world/ was created by create-react-app and houses all of our new application's code.
+
+**Start the application**
+`npm start -c` 
+> Runs the app in development mode. Open http://localhost:3000 to view it in the browser.The page will reload if you make edits. You will see the build errors and lint warnings in the console.
