@@ -44,7 +44,8 @@ I feel that learning is best accomplished by "doing," and as such, throughout th
 
 The fundamental concepts in Redux are called "stores" and "actions". A store has two parts: a plain-old JavaScript object that represents the current state of your application, and a "reducer", which is a function that describes how incoming actions modify your state.
 
-`const defaultState ={checked:false};
+```
+const defaultState ={checked:false};
 const reducer = function(state = defaultState, action) {
   switch (action.type) {
     case 'TOGGLE' :
@@ -54,4 +55,6 @@ const reducer = function(state = defaultState, action) {
   }
   // return state => This is another way to return the default state in case of initial action
 };
-const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());`
+const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+```
