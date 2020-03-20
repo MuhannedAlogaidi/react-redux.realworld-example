@@ -34,3 +34,24 @@ I feel that learning is best accomplished by "doing," and as such, throughout th
 **Start the application**
 `npm start -c` 
 > Runs the app in development mode. Open http://localhost:3000 to view it in the browser.The page will reload if you make edits. You will see the build errors and lint warnings in the console.
+
+**Install redux and react-redux**
+`npm install react-redux redux` 
+> To use React Redux with React app. sometimes we using --save or --save-dev
+
+## The Fundamentals of Redux
+> Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
+
+The fundamental concepts in Redux are called "stores" and "actions". A store has two parts: a plain-old JavaScript object that represents the current state of your application, and a "reducer", which is a function that describes how incoming actions modify your state.
+
+`const defaultState ={checked:false};
+const reducer = function(state = defaultState, action) {
+  switch (action.type) {
+    case 'TOGGLE' :
+      return {...state,checked:!state.checked}
+    default :
+      return {...state}
+  }
+  // return state => This is another way to return the default state in case of initial action
+};
+const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());`
