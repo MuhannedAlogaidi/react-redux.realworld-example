@@ -21,13 +21,27 @@ const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = store.getState(); // Initial the local state when the component
   }
-
+  componentWillMount() {
+    store.subscribe(() => this.setState(store.getState()));
+  }
+  onClick = () => {
+    store.dispatch({ type: "TOGGLE" }); // dispatch take Object the action type and payload optionally
+  };
   render() {
     return (
       <div>
-        <h1>Hello, World!</h1>
+        <h1>To-dos</h1>
+        <div>
+          Learn Redux&nbsp;
+          <input
+            type="checkbox"
+            checked={!!this.state.checked}
+            onClick={this.onClick} // Don't do this.onClick() , if you want do {()=>this.onClick}
+          ></input>
+        </div>
+        {this.state.checked ? <h2>Done!</h2> : null}
       </div>
     );
   }

@@ -37,13 +37,18 @@ I feel that learning is best accomplished by "doing," and as such, throughout th
 
 **Install redux and react-redux**
 `npm install react-redux redux` 
-> To use React Redux with React app. sometimes we using --save or --save-dev
+> To use React Redux with React app. sometimes we using --save or --save-dev. This code below mae redux state and actions/dispatch action visible in redux dev tools:
+
+```
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+```
 
 ## The Fundamentals of Redux
 > Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
 
 The fundamental concepts in Redux are called "stores" and "actions". A store has two parts: a plain-old JavaScript object that represents the current state of your application, and a "reducer", which is a function that describes how incoming actions modify your state.
-
+### Part 1 Create redux store
 ```
 const defaultState ={checked:false};
 const reducer = function(state = defaultState, action) {
@@ -57,4 +62,27 @@ const reducer = function(state = defaultState, action) {
 };
 const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+```
+### Part 2 Displaying the state
+A store has three functions that you're going to be using in this course:
+
+1. getState - fetches the current state of a store
+2. dispatch - fires off a new action
+3. subscribe - fires a callback everytime there's a new action after a reducer's action
+
+We'll have the App component subscribe to the state using one of React's life-cycle hooks called **componentWillMount()**. This function is called when the component is going to be rendered, *so it's a good place to put initialization logic*.
+```
+componentWillMount() {
+    store.subscribe(() => this.setState(store.getState()));
+  }
+
+```
+We subscribe to the redux store and call React's setState() function every time the store changes so we always get the newly reduced state. React calls the render() function every time the component's state changes, which "renders" the component.
+
+### Part 3 Dispatching Actions to Change State
+To mutate(change) the redux state, you need to dispatch an action. Recall that an action is the 2nd parameter that gets passed to your reducer. *An action is an object that tells your reducer what happened (e.g. toggle, click, etc.), Redux actions must have a type property, and sometimes payload optionally.*
+
+create a function called **onClick** as example that calls the Redux store's dispatch() function, which is how you fire off an 
+```
+store.dispatch({ type: "TOGGLE" }); 
 ```
