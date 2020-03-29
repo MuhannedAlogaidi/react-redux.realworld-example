@@ -1,6 +1,8 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 
 import { connect } from "react-redux";
+import Header from "./Header";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,11 @@ class App extends Component {
   }
 
   render() {
-    return <div>{this.props.appName}</div>;
+    return (
+      <div>
+        <Header appName={this.props.appName} />
+      </div>
+    );
   }
 }
 

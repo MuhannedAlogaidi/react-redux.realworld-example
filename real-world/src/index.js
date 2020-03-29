@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 
 import * as serviceWorker from "./serviceWorker";
 
-import App from './App';
+import App from './component/App';
 
 const defaultState = {
   appName: "conduit",
