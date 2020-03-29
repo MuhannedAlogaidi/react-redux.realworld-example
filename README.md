@@ -86,5 +86,15 @@ To mutate(change) the redux state, you need to dispatch an action. Recall that a
 
 create a function called **onClick** as example that calls the Redux store's dispatch() function, which is how you fire off an 
 ```
-store.dispatch({ type: "TOGGLE" }); 
+store.dispatch({ type: "TOGGLE" });
 ```
+### Part 4 Redux connect and using (mapStateToProps , mapDispatchToProps)
+**connect()** function connects a React component to a Redux store.It provides its *connected component* with the pieces of the data it needs from the store, and the functions it can use to dispatch actions to the store.It does not modify the component class passed to it; instead, it returns a new, connected component class that wraps the component you passed in.
+```
+export default connect(mapStateToProps,mapDispatchToProps)(App);
+```
+**mapStateToProps** and **mapDispatchToProps** deals with your Redux store’s **state** and **dispatch**, respectively. state and dispatch will be supplied to your mapStateToProps or mapDispatchToProps functions as the first argument.
+
+> The returns of mapStateToProps and mapDispatchToProps are referred to internally as stateProps and dispatchProps, respectively. 
+
+It does not matter if a mapStateToProps function is written using the function keyword (function mapState(state) { } ) or as an arrow function (const mapState = (state) => { } ) - it will work the same either way.
