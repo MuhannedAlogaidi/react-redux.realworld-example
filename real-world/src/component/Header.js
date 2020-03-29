@@ -14,3 +14,7 @@ class Header extends Component {
 }
 
 export default Header;
+
+/* Notes:
+Header component which will display the nav bar at the top of the Conduit site. 
+*/
