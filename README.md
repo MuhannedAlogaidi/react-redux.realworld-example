@@ -48,6 +48,8 @@ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 > Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
 
 The fundamental concepts in Redux are called "stores" and "actions". A store has two parts: a plain-old JavaScript object that represents the current state of your application, and a "reducer", which is a function that describes how incoming actions modify your state.
+
+The **react-redux module** is the "official bindings" between react and redux. It adds some useful syntactic sugar for binding your components to your redux state. The Provider component that you get from react-redux is how you tell react-redux about your redux store.
 ### Part 1 Create redux store
 ```
 const defaultState ={checked:false};
